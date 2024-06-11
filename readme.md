@@ -9,7 +9,7 @@
 
 Action to set a repository variable.
 
-## Usage
+## Usage 🚀
 
 ```YAML
 uses: action-pack/set-variable@v1
@@ -19,7 +19,7 @@ with:
   token: ${{ secrets.REPO_ACCESS_TOKEN }}
 ```
 
-## Inputs
+## Inputs 📝
 
 ### name
 
@@ -45,7 +45,7 @@ with:
 
 **Optional** `Boolean` Indicates the repo is an [organization](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-organizations).
 
-## FAQ
+## FAQ 💬
 
   * ### Why do I get the error '*Resource not accessible by integration*'?
 
@@ -61,5 +61,5 @@ with:
     token: ${{ secrets.MY_TOKEN }}
     ```
 
-## Stars
+## Stars 🌟
 [![Stars](https://starchart.cc/action-pack/set-variable.svg?variant=adaptive)](https://starchart.cc/action-pack/set-variable)
