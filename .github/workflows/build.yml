@@ -108,7 +108,7 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
       -
         name: Store tag
-        uses: action-pack/set-variable@v1.11
+        uses: action-pack/set-variable@v1.12
         with:
           name: 'TAG'
           value: 'v${{ vars.MAJOR }}.${{ vars.MINOR }}'
