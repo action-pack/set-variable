@@ -91,7 +91,7 @@ const bootstrap = async () => {
       const response = await setVariable(value);
 
       if (response.status === 204) {
-        return "Succesfully updated variable " + name + " to '" + value + "'.";
+        return "Successfully updated variable " + name + " to '" + value + "'.";
       }
 
       throw new Error("ERROR: Wrong status was returned: " + response.status);
@@ -101,7 +101,7 @@ const bootstrap = async () => {
       const response = await createVariable(value);
 
       if (response.status === 201) {
-        return "Succesfully created variable " + name + " with value '" + value + "'.";
+        return "Successfully created variable " + name + " with value '" + value + "'.";
       }
 
       throw new Error("ERROR: Wrong status was returned: " + response.status);
