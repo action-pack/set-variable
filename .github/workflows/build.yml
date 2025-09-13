@@ -108,7 +108,7 @@ jobs:
             ${{ steps.changelog.outputs.changes }}
       -
         name: Store tag
-        uses: action-pack/set-variable@v1.13
+        uses: action-pack/set-variable@v1.14
         with:
           name: 'TAG'
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
