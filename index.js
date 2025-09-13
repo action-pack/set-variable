@@ -4,9 +4,10 @@ const github = require("@actions/github");
 const token = core.getInput("token");
 const octokit = github.getOctokit(token);
 
-const visibility = "all";
 const name = input("name", "");
 const value = core.getInput("value");
+
+const visibility = input("visibility", "all");
 const push_to_org = (input("org", "") !== "");
 const owner = input("owner", github.context.payload.repository.owner.login);
 const repository = input("repository", github.context.payload.repository.name);
