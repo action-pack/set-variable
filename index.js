@@ -32,25 +32,19 @@ function input(name, def) {
 
 const createVariable = (data) => {
 
-  if (push_to_org) return createOrgVariable(data);
-
   let url = "POST " + path_();
   url += "/actions/variables";
 
-  return octokit.request(url, {
-    name: name,
-    value: data
-  });
-};
-
-const createOrgVariable = (data) => {
-
-  let url = "POST " + path_();
-  url += "/actions/variables";
+  if (push_to_org) {
+    return octokit.request(url, {
+      name: name,
+      visibility: visibility,
+      value: data
+    });
+  }
 
   return octokit.request(url, {
     name: name,
-    visibility: visibility,
     value: data
   });
 };
