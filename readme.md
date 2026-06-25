@@ -62,4 +62,4 @@ with:
     ```
 
 ## Stars 🌟
-[![Stars](https://starchart.cc/action-pack/set-variable.svg?variant=adaptive)](https://starchart.cc/action-pack/set-variable)
+![Stargazers](https://raw.githubusercontent.com/star-stats/stars/refs/heads/data/charts/action-pack-set-variable.svg)
