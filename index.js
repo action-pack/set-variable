@@ -50,7 +50,7 @@ const createVariable = (data) => {
 const setVariable = (data) => {
 
   let url = "PATCH " + path_();
-  url += "/actions/variables/" + name;
+  url += "/actions/variables/" + encodeURIComponent(name);
 
   return octokit.request(url, {
     name: name,
@@ -61,7 +61,7 @@ const setVariable = (data) => {
 const getVariable = (varname) => {
 
   let url = "GET " + path_();
-  url += "/actions/variables/" + varname;
+  url += "/actions/variables/" + encodeURIComponent(varname);
 
   return octokit.request(url);
 };
@@ -72,22 +72,28 @@ const bootstrap = async () => {
 
   try {
 
+    if (name === "") {
+      throw new Error("No name was specified!");
+    }
+
+    if (value === "") {
+      throw new Error("No value was specified!");
+    }
+
     const response = await getVariable(name);
     exists = response.status === 200;
 
   } catch (e) {
     if (e.status !== 404) {
-      throw e;
+      core.setFailed(path_() + ": " + e.message);
+      console.error(e);
+      return;
     }
 
     // Variable does not exist
   }
 
   try {
-
-    if (name === "") {
-      throw new Error("No name was specified!");
-    }
 
     if (exists) {
 
@@ -129,7 +135,4 @@ bootstrap()
       core.setFailed(err.message);
       console.error(err);
     },
-  )
-  .then(() => {
-    process.exit();
-  });
+  );
